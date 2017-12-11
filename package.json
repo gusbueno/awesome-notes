@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "enzyme": "^3.2.0",
-    "proptypes": "^1.1.0",
+    "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.4",
     "react-navigation": "^1.0.0-beta.21",
@@ -25,6 +25,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": ["./src/assets/fonts"]
+    "assets": [
+      "./src/assets/fonts"
+    ]
   }
 }
