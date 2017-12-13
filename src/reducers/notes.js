@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE } from '../constants/ActionTypes';
+import { SHOW_FAVOURITES } from '../constants/ActionTypes';
 
 const initialState = {
     showFavourites: false
