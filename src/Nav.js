@@ -8,9 +8,17 @@ export const Nav = StackNavigator(
     {
         Notes: { screen: Notes },
     }, {
-        headerMode: 'none',
+        headerMode: 'screen',
         navigationOptions: {
-            gesturesEnabled: true,
+            gesturesEnabled: false,
+            headerTintColor: 'white',
+            headerStyle: {
+                backgroundColor: '#E63946',
+
+            },
+            headerTitleStyle: {
+                fontFamily: 'Roboto-Regular'
+            }
         },
     }
 );
