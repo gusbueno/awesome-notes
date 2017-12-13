@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import { NotesStyle } from '../../styles/index';
 
-const EmptyNotes = ({ addNote }) => {
+const EmptyNotes = ({ gotoCreateNote }) => {
     return (
         <View style={NotesStyle.emptyNotes.wrapper}>
             <View style={NotesStyle.emptyNotes.iconRow}>
@@ -17,7 +17,7 @@ const EmptyNotes = ({ addNote }) => {
             <View style={NotesStyle.emptyNotes.messageRow}>
                 <Text style={NotesStyle.emptyNotes.messageText}>There are no notes saved. Create your first one by tapping on the following button!</Text>
             </View>
-            <TouchableOpacity onPress={addNote} style={NotesStyle.emptyNotes.button}>
+            <TouchableOpacity onPress={gotoCreateNote} style={NotesStyle.emptyNotes.button}>
                 <Text style={NotesStyle.emptyNotes.buttonText}>Create new note!</Text>
             </TouchableOpacity>
         </View>
@@ -25,7 +25,7 @@ const EmptyNotes = ({ addNote }) => {
 };
 
 EmptyNotes.propTypes = {
-    addNote: PropTypes.func.isRequired
+    gotoCreateNote: PropTypes.func.isRequired
 };
 
 export default EmptyNotes;

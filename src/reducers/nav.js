@@ -1,6 +1,6 @@
 import { NavigationActions } from 'react-navigation';
 
-import { NOTES, BACK } from '../constants/ActionTypes';
+import { NOTES, NEW_NOTE, BACK } from '../constants/ActionTypes';
 import { Nav } from '../Nav';
 
 const initialState = Nav.router.getStateForAction(Nav.router.getActionForPathAndParams('Notes'));
@@ -10,6 +10,8 @@ const nav = (state = initialState, action) => {
         case NOTES:
             nextState = Nav.router.getStateForAction(NavigationActions.navigate({ routeName: 'Notes' }), state);
             break;
+        /*case NEW_NOTE:
+            nextState = Nav.router.getStateForAction(NavigationActions.navigate({ routeName: 'NewNote' }), state);*/
         default:
             break;
     }

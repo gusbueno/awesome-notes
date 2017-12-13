@@ -14,7 +14,9 @@
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-orm": "^0.9.4",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
