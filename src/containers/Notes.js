@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { NotesStyle } from '../styles/index';
 import { notes } from '../selectors/notes';
 import EmptyNotes from '../components/Notes/EmptyNotes';
+import { goto } from '../actions/navigation';
 
 class Notes extends Component {
 
@@ -15,7 +16,7 @@ class Notes extends Component {
 
     renderNotes() {
         console.log(this.props.notes);
-        return this.props.notes.length > 0 ? <View /> : <EmptyNotes gotoCreateNote={() => { console.log("add note");}} />;
+        return this.props.notes.length > 0 ? <View /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
     }
 
     render() {
@@ -35,6 +36,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
+        gotoCreateNote: () => {
+            dispatch(goto('CreateNote'));
+        }
     });
 };
 

@@ -10,7 +10,7 @@ export const Nav = StackNavigator(
         Notes: { screen: Notes },
         CreateNote: { screen: CreateNote }
     }, {
-        headerMode: 'screen',
+        headerMode: 'float',
         navigationOptions: {
             gesturesEnabled: false,
             headerTintColor: 'white',
