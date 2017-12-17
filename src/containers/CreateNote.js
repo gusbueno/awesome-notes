@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, TextInput, Keyboard } from 'react-native';
+import { View, TextInput, Keyboard, Alert } from 'react-native';
 import { back } from '../actions/navigation';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
@@ -60,13 +60,17 @@ class CreateNote extends Component {
     }
 
     _saveNote() {
-        const note = {
-            id: uuid(),
-            text: this.state.text,
-            createdAt: new Date(),
-            favourite: false
-        };
-        this.props.save(note);
+        if(this.state.text.trim() === '') {
+            Alert.alert('Empty Text', 'Come on! write something cool... ;)');
+        } else {
+            const note = {
+                id: uuid(),
+                text: this.state.text,
+                createdAt: new Date(),
+                favourite: false
+            };
+            this.props.save(note);
+        }
     }
 
     render() {
