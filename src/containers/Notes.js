@@ -6,8 +6,9 @@ import { connect } from 'react-redux';
 import { NotesStyle } from '../styles/index';
 import { notes } from '../selectors/notes';
 import { goto } from '../actions/navigation';
-import EmptyNotes from '../components/Notes/EmptyNotes';
 import HeaderButton from '../components/common/HeaderButton';
+import EmptyNotes from '../components/Notes/EmptyNotes';
+import NotesList from '../components/Notes/NotesList';
 
 class Notes extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -27,7 +28,7 @@ class Notes extends Component {
 
     renderNotes() {
         console.log(this.props.notes);
-        return this.props.notes.length > 0 ? <View /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
+        return this.props.notes.length > 0 ? <NotesList /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
     }
 
     render() {
