@@ -7,7 +7,7 @@ import { NotesStyle } from '../styles/index';
 import { notes } from '../selectors/notes';
 import { goto } from '../actions/navigation';
 import EmptyNotes from '../components/Notes/EmptyNotes';
-import CreateNoteButton from '../components/common/CreateNoteButton';
+import HeaderButton from '../components/common/HeaderButton';
 
 class Notes extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -15,7 +15,7 @@ class Notes extends Component {
         const gotoCreateNote = state.params && state.params.gotoCreateNote ? state.params.gotoCreateNote : null;
         return {
             title: 'Notes',
-            headerRight: <CreateNoteButton gotoCreateNote={gotoCreateNote} />
+            headerRight: <HeaderButton action={gotoCreateNote} type='plus' />
         }
     };
 
@@ -51,6 +51,11 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(goto('CreateNote'));
         }
     });
+};
+
+Notes.propTypes = {
+    notes: PropTypes.array.isRequired,
+    gotoCreateNote: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notes);
