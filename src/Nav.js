@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 
 import Notes from './containers/Notes';
+import CreateNote from './containers/CreateNote';
 
 export const Nav = StackNavigator(
     {
         Notes: { screen: Notes },
+        CreateNote: { screen: CreateNote }
     }, {
-        headerMode: 'screen',
+        headerMode: 'float',
         navigationOptions: {
             gesturesEnabled: false,
             headerTintColor: 'white',

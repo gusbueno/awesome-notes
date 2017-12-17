@@ -26,9 +26,10 @@ class Note extends Model {
 
     static get fields() {
         return {
-            id: attr(), // non-relational field for any value; optional but highly recommended
+            id: attr(),
             text: attr(),
-            favourite:attr()
+            favourite: attr(),
+            createdAt: attr()
         }
     }
 }
