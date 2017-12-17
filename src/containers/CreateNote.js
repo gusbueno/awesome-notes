@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { View, TextInput } from 'react-native';
 import { back } from '../actions/navigation';
 import { connect } from 'react-redux';
+import uuid from 'uuid/v1';
 
+import { saveNote } from '../actions/createNote';
 import HeaderButton from '../components/common/HeaderButton';
 
 class CreateNote extends Component {
@@ -15,17 +17,18 @@ class CreateNote extends Component {
             text: '',
             createdAt: null,
             favorite: false
+        };
 
-        }
+        this.saveNote = this.saveNote.bind(this);
     }
 
     static navigationOptions = ({ navigation }) => {
         const { state } = navigation;
-        console.log(state.params);
         const cancel = state.params && state.params.cancel ? state.params.cancel : null;
+        const save = state.params && state.params.save ? state.params.save : null;
         return {
             title: 'New Note',
-            headerRight: <HeaderButton action={() => console.log("save!")} type='check' />,
+            headerRight: <HeaderButton action={save} type='check' />,
             headerLeft: <HeaderButton action={cancel} type='cross' />
         }
     };
@@ -33,8 +36,13 @@ class CreateNote extends Component {
     componentDidMount() {
         this.props.navigation.setParams({
             cancel: this.props.cancel,
-            save: () => {}
+            save: this.saveNote
         });
+    }
+
+    saveNote() {
+
+        this.setState({ id: uuid(), createdAt: new Date() }, () => this.props.save({}));
     }
 
     render() {
@@ -56,12 +64,16 @@ const mapDispatchToProps = (dispatch) => {
     return ({
         cancel: () => {
             dispatch(back());
+        },
+        save: (note) => {
+            dispatch(saveNote(note));
         }
     });
 };
 
 CreateNote.propTypes = {
-    cancel: PropTypes.func.isRequired
+    cancel: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired
 };
 
 export default connect(null, mapDispatchToProps)(CreateNote);
