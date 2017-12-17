@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Keyboard } from 'react-native';
 import { back } from '../actions/navigation';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 
+import { CreateNoteStyle } from '../styles';
 import { saveNote } from '../actions/createNote';
 import HeaderButton from '../components/common/HeaderButton';
 
@@ -13,13 +14,13 @@ class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: null,
-            text: '',
-            createdAt: null,
-            favorite: false
+            keyboardHeight: 0,
+            text: ''
         };
 
-        this.saveNote = this.saveNote.bind(this);
+        this._saveNote = this._saveNote.bind(this);
+        this._keyboardDidShow = this._keyboardDidShow.bind(this);
+        this._keyboardDidHide = this._keyboardDidHide.bind(this);
     }
 
     static navigationOptions = ({ navigation }) => {
@@ -33,28 +34,51 @@ class CreateNote extends Component {
         }
     };
 
+    componentWillMount() {
+        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+    }
+
+    componentWillUnmount () {
+        this.keyboardDidShowListener.remove();
+        this.keyboardDidHideListener.remove();
+    }
+
     componentDidMount() {
         this.props.navigation.setParams({
             cancel: this.props.cancel,
-            save: this.saveNote
+            save: this._saveNote
         });
     }
 
-    saveNote() {
+    _keyboardDidShow(e) {
+        this.setState({ keyboardHeight: e.endCoordinates.height });
+    }
 
-        this.setState({ id: uuid(), createdAt: new Date() }, () => this.props.save({}));
+    _keyboardDidHide() {
+        this.setState({ keyboardHeight: 0 });
+    }
+
+    _saveNote() {
+        const note = {
+            id: uuid(),
+            text: this.state.text,
+            createdAt: new Date(),
+            favourite: false
+        };
+        this.props.save(note);
     }
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={CreateNoteStyle.container}>
                 <TextInput
-                    style={{ flex: 1, padding: 10 }}
+                    style={[CreateNoteStyle.textArea, { marginBottom: this.state.keyboardHeight }]}
                     multiline={true}
                     autoFocus={true}
                     placeholder='How do you plan to dominate the world?'
                     onChangeText={(text) => this.setState({ text })}
-                    value={this.state.text}/>
+                    value={this.state.text} />
             </View>
         )
     }
