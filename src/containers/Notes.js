@@ -27,8 +27,7 @@ class Notes extends Component {
     }
 
     renderNotes() {
-        console.log(this.props.notes);
-        return this.props.notes.length > 0 ? <NotesList /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
+        return this.props.notes.length > 0 ? <NotesList notes={this.props.notes} /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
     }
 
     render() {

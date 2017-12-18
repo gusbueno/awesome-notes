@@ -16,6 +16,7 @@ export const Nav = StackNavigator(
             headerTintColor: 'white',
             headerStyle: {
                 backgroundColor: '#E63946',
+                // paddingTop: 24
 
             },
             headerTitleStyle: {
