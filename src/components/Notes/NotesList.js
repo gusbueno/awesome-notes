@@ -2,14 +2,12 @@ import React, { PureComponent } from 'react';
 import { View, Text, VirtualizedList } from 'react-native';
 import PropTypes from 'prop-types';
 
+import NoteItem from './NoteItem';
+
 class NotesList extends PureComponent {
 
     _renderItem({ item }) {
-        return (
-            <View style={{ height: 100, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                <Text>{item.text}</Text>
-            </View>
-        );
+        return <NoteItem note={item} />;
     }
 
     _getItem(data, index) {
@@ -24,7 +22,6 @@ class NotesList extends PureComponent {
         console.log(this.props.notes);
         return (
             <View style={{ flex: 1 }}>
-                <Text>Notes List</Text>
                 <VirtualizedList
                     data={this.props.notes}
                     renderItem={this._renderItem}
