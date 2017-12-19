@@ -56,7 +56,8 @@ export default {
     },
     noteItem: {
         swipeoutWrapper: {
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
+            marginBottom: 10
         },
         wrapper: {
             width: '100%',
