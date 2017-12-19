@@ -1,6 +1,6 @@
 import { attr, Model } from 'redux-orm';
 
-import { ON_CREATE_NOTE, ON_UPDATE_NOTE } from '../constants/ActionTypes';
+import { ON_CREATE_NOTE, ON_UPDATE_NOTE, ON_DELETE_NOTE } from '../constants/ActionTypes';
 
 class Note extends Model {
     static reducer(action, NoteRef) {
@@ -12,7 +12,12 @@ class Note extends Model {
                 break;
             case ON_UPDATE_NOTE:
                 if(this.hasId(action.note.id)) {
-                    NoteRef.withId(action.note.id).update(action.note);
+                    NoteRef.withId(action.note.id).update({ favourite: action.note.favourite });
+                }
+                break;
+            case ON_DELETE_NOTE:
+                if(this.hasId(action.id)) {
+                    NoteRef.withId(action.id).delete();
                 }
                 break;
             default:

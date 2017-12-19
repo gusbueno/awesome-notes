@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 import NoteItem from './NoteItem';
 
 class NotesList extends PureComponent {
+    constructor(props) {
+        super(props);
+        this._renderItem = this._renderItem.bind(this);
+    }
 
     _renderItem({ item }) {
-        return <NoteItem note={item} />;
+        return <NoteItem note={item} updateNote={this.props.updateNote} deleteNote={this.props.deleteNote} />;
     }
 
     _getItem(data, index) {
@@ -38,7 +42,9 @@ class NotesList extends PureComponent {
 }
 
 NotesList.propTypes = {
-    notes: PropTypes.array.isRequired
+    notes: PropTypes.array.isRequired,
+    updateNote: PropTypes.func.isRequired,
+    deleteNote: PropTypes.func.isRequired
 };
 
 export default NotesList;

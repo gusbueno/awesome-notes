@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { NotesStyle } from '../styles/index';
 import { notes } from '../selectors/notes';
 import { goto } from '../actions/navigation';
+import { deleteNote, updateNote } from '../actions/notes';
 import HeaderButton from '../components/common/HeaderButton';
 import EmptyNotes from '../components/Notes/EmptyNotes';
 import NotesList from '../components/Notes/NotesList';
@@ -26,14 +27,14 @@ class Notes extends Component {
         });
     }
 
-    renderNotes() {
-        return this.props.notes.length > 0 ? <NotesList notes={this.props.notes} /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
+    _renderNotes() {
+        return this.props.notes.length > 0 ? <NotesList notes={this.props.notes} updateNote={this.props.updateNote} deleteNote={this.props.deleteNote} /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
     }
 
     render() {
         return (
             <View style={NotesStyle.container}>
-                {this.renderNotes()}
+                {this._renderNotes()}
             </View>
         );
     }
@@ -49,13 +50,21 @@ const mapDispatchToProps = (dispatch) => {
     return ({
         gotoCreateNote: () => {
             dispatch(goto('CreateNote'));
+        },
+        updateNote: (note) => {
+            dispatch(updateNote(note));
+        },
+        deleteNote: (id) => {
+            dispatch(deleteNote(id));
         }
     });
 };
 
 Notes.propTypes = {
     notes: PropTypes.array.isRequired,
-    gotoCreateNote: PropTypes.func.isRequired
+    gotoCreateNote: PropTypes.func.isRequired,
+    updateNote: PropTypes.func.isRequired,
+    deleteNote: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notes);
