@@ -81,5 +81,13 @@ export default {
             textAlign: 'right',
             fontFamily: 'Roboto-Thin'
         }
+    },
+    noteButton: {
+        wrapper: {
+            height: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'transparent'
+        }
     }
 }

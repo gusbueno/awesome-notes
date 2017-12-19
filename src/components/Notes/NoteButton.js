@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { ICON_TYPES } from '../../constants/IconTypes';
+import  { NotesStyle } from '../../styles';
 
 const NoteButton = ({ type }) => {
     return (
-        <View style={{ height: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent' }}>
+        <View style={NotesStyle.noteButton.wrapper}>
             <Icon name={ICON_TYPES[type].name} size={30} color={ICON_TYPES[type].color} />
         </View>
     );
