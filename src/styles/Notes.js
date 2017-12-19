@@ -48,5 +48,38 @@ export default {
             fontSize: 18,
             color: '#1D3557'
         }
+    },
+    notesList: {
+        wrapper: {
+            flex: 1
+        }
+    },
+    noteItem: {
+        swipeoutWrapper: {
+            backgroundColor: 'transparent'
+        },
+        wrapper: {
+            width: '100%',
+            backgroundColor: '#A8DADC',
+            borderRadius: 10,
+            padding: 10
+        },
+        textWrapper: {
+            flex: 1,
+            marginBottom: 5
+        },
+        text: {
+            color: '#211A1E',
+            fontFamily: 'Roboto-Regular'
+        },
+        dateWrapper: {
+            height: 10
+        },
+        date: {
+            color: '#457B9D',
+            fontSize: 10,
+            textAlign: 'right',
+            fontFamily: 'Roboto-Thin'
+        }
     }
 }

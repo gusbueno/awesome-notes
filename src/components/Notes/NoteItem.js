@@ -3,6 +3,7 @@ import { View, Text, Animated } from 'react-native';
 import PropTypes from 'prop-types';
 import Swipeout from 'react-native-swipeout';
 
+import { NotesStyle } from '../../styles';
 import NoteButton from './NoteButton';
 
 class NoteItem extends Component {
@@ -30,13 +31,13 @@ class NoteItem extends Component {
             sectionId: 1
         };
         return (
-            <Swipeout {...swipeSettings} style={{ backgroundColor: 'transparent', paddingBottom: 10 }}>
-                <View style={{ width: '100%', backgroundColor: '#A8DADC', borderRadius: 10, padding: 10 }}>
-                    <View style={{ flex: 1, marginBottom: 5 }}>
-                        <Text style={{ color: '#211A1E', fontFamily: 'Roboto-Regular' }}>{this.props.note.text}</Text>
+            <Swipeout {...swipeSettings} style={NotesStyle.noteItem.swipeoutWrapper}>
+                <View style={NotesStyle.noteItem.wrapper}>
+                    <View style={NotesStyle.noteItem.textWrapper}>
+                        <Text style={NotesStyle.noteItem.text}>{this.props.note.text}</Text>
                     </View>
-                    <View style={{ height: 10 }}>
-                        <Text style={{ color: '#457B9D', fontSize: 10, textAlign: 'right', fontFamily: 'Roboto-Thin' }}>{this._formatDate(this.props.note.createdAt)}</Text>
+                    <View style={NotesStyle.noteItem.dateWrapper}>
+                        <Text style={NotesStyle.noteItem.date}>{this._formatDate(this.props.note.createdAt)}</Text>
                     </View>
                 </View>
             </Swipeout>

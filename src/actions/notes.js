@@ -1,5 +1,4 @@
-import { ON_CREATE_NOTE, ON_UPDATE_NOTE, ON_DELETE_NOTE } from '../constants/ActionTypes';
-import { back } from './navigation';
+import { ON_UPDATE_NOTE, ON_DELETE_NOTE } from '../constants/ActionTypes';
 
 export const onUpdateNote = (note) => {
     return {
@@ -9,7 +8,6 @@ export const onUpdateNote = (note) => {
 };
 
 export const onDeleteNote = (id) => {
-    console.log(id);
     return {
         type: ON_DELETE_NOTE,
         id
@@ -17,7 +15,6 @@ export const onDeleteNote = (id) => {
 };
 
 export const updateNote = (note) => {
-    console.log(note);
     return (dispatch) => {
         dispatch(onUpdateNote(note));
     }
