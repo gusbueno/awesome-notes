@@ -8,7 +8,10 @@ export const notes = createSelector(
     state => state.notes.filterByFavourites,
     ormCreateSelector(orm, (session, filterByFavourites) => {
         const noteModelArray = session.Note.all().toModelArray();
-        const notes = filterByFavourites ? noteModelArray.filter(note => note.favourite) : noteModelArray;
-        return notes;
+        const notesFiltered = filterByFavourites ? noteModelArray.filter(note => note.favourite) : noteModelArray;
+        const notesSorted = notesFiltered.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        return notesSorted;
     })
 );

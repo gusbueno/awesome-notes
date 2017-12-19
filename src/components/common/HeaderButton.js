@@ -3,13 +3,13 @@ import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
+import { ICON_TYPES } from '../../constants/IconTypes';
 import { HeaderButtonStyle } from '../../styles';
 
 const HeaderButton = ({ action, type }) => {
-    const iconTypes = { plus:'ios-add-outline', cross: 'ios-close-outline', check: 'ios-checkmark-outline' };
     return (
         <TouchableOpacity onPress={action} style={HeaderButtonStyle.wrapper}>
-            <Icon name={iconTypes[type]} size={40} color="white" />
+            <Icon name={ICON_TYPES[type].name} size={40} color={ICON_TYPES[type].color} />
         </TouchableOpacity>
     );
 };

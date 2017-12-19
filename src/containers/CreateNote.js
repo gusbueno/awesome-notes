@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, TextInput, Keyboard, Alert } from 'react-native';
+import { View, TextInput, Keyboard, Platform, Alert } from 'react-native';
 import { back } from '../actions/navigation';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
@@ -52,7 +52,7 @@ class CreateNote extends Component {
     }
 
     _keyboardDidShow(e) {
-        this.setState({ keyboardHeight: e.endCoordinates.height });
+        this.setState({ keyboardHeight: Platform.OS === 'ios' ? e.endCoordinates.height : 0 });
     }
 
     _keyboardDidHide() {
