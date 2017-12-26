@@ -10,6 +10,7 @@ import { deleteNote, updateNote, filterByFavourites } from '../actions/notes';
 import HeaderButton from '../components/common/HeaderButton';
 import EmptyNotes from '../components/Notes/EmptyNotes';
 import NotesList from '../components/Notes/NotesList';
+import NoFavouriteNotes from '../components/Notes/NoFavouriteNotes';
 
 class Notes extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -41,7 +42,10 @@ class Notes extends Component {
     }
 
     _renderNotes() {
-        // TODO create no favourites notes View
+        // render no favourite notes Component
+        if(this.props.isFilteredByFavourites && this.props.notes.length === 0) {
+            return <NoFavouriteNotes />;
+        }
         return this.props.notes.length > 0 ? <NotesList notes={this.props.notes} updateNote={this.props.updateNote} deleteNote={this.props.deleteNote} /> : <EmptyNotes gotoCreateNote={this.props.gotoCreateNote} />;
     }
 

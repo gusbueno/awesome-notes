@@ -36,10 +36,12 @@ export default {
             color: '#F1FAEE',
             textAlign: 'center'
         },
-        button: {
-            backgroundColor: '#A8DADC',
-            padding: 5,
-            borderRadius: 5
+        gradient: {
+            colors: ['#e4efe9', '#93a5cf'],
+            wrapper: {
+                paddingVertical: 10,
+                borderRadius: 5
+            }
         },
         buttonText: {
             textAlign: 'center',
