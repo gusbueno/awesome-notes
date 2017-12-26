@@ -1,4 +1,4 @@
-import { ON_UPDATE_NOTE, ON_DELETE_NOTE } from '../constants/ActionTypes';
+import { ON_UPDATE_NOTE, ON_DELETE_NOTE, SHOW_FAVOURITES } from '../constants/ActionTypes';
 
 export const onUpdateNote = (note) => {
     return {
@@ -14,6 +14,12 @@ export const onDeleteNote = (id) => {
     }
 };
 
+export const onFilterByFavourites = () => {
+    return {
+        type: SHOW_FAVOURITES
+    }
+};
+
 export const updateNote = (note) => {
     return (dispatch) => {
         dispatch(onUpdateNote(note));
@@ -23,5 +29,11 @@ export const updateNote = (note) => {
 export const deleteNote = (id) => {
     return (dispatch) => {
         dispatch(onDeleteNote(id));
+    }
+};
+
+export const filterByFavourites = () => {
+    return (dispatch) => {
+        return dispatch(onFilterByFavourites());
     }
 };
