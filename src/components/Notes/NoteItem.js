@@ -53,15 +53,19 @@ class NoteItem extends Component {
             right: [{ onPress: () => { this.props.deleteNote(this.props.note.id)}, component: <NoteButton type='delete' />, backgroundColor: 'transparent' }],
             left: [{ onPress: this._switchFavorite, component: <NoteButton type={this.props.note.favourite ? 'favourite-selected' : 'favourite'} />, backgroundColor: 'transparent'}],
             rowId: this.props.note.id,
-            sectionId: 1,
             onOpen: this._onSwipeOpen,
-            onClose: this._onSwipeClose
+            onClose: this._onSwipeClose,
+            style: NotesStyle.noteItem.swipeoutWrapper
         };
 
         let { scaleAnim, opacityAnim } = this.state;
+        const rotateY = this.state.opacityAnim.interpolate({
+            inputRange: [0.5, 1],
+            outputRange: ['45deg', '0deg']
+        });
         return (
-            <Swipeout {...swipeSettings} style={NotesStyle.noteItem.swipeoutWrapper}>
-                <Animated.View style={[NotesStyle.noteItem.wrapper, { opacity: opacityAnim }, { transform: [{ scale: scaleAnim }] }]}>
+            <Swipeout {...swipeSettings}>
+                <Animated.View style={[NotesStyle.noteItem.wrapper, { opacity: opacityAnim }, { transform: [{ scale: scaleAnim }, { perspective: 1000 }, { rotateY }] }]}>
                     <View style={NotesStyle.noteItem.textWrapper}>
                         <Text style={NotesStyle.noteItem.text}>{this.props.note.text}</Text>
                     </View>

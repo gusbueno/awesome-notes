@@ -1,5 +1,3 @@
-import { Dimensions } from 'react-native';
-
 export default {
     container: {
         flex: 1,
@@ -64,7 +62,6 @@ export default {
             marginBottom: 10
         },
         wrapper: {
-            width: Dimensions.get('window').width - 20,
             backgroundColor: '#A8DADC',
             borderRadius: 10,
             padding: 10
