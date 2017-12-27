@@ -19,7 +19,7 @@ const EmptyNotes = ({ gotoCreateNote }) => {
                 <Text style={NotesStyle.emptyNotes.messageText}>There are no notes saved. Create your first one by tapping on the following button!</Text>
             </View>
             <TouchableOpacity onPress={gotoCreateNote}>
-                <LinearGradient start={{x: 0.0, y: 0.1}} end={{x: 0.1, y: 1.0}} colors={NotesStyle.emptyNotes.gradient.colors} style={NotesStyle.emptyNotes.gradient.wrapper}>
+                <LinearGradient locations={[0.1,1.0]} colors={NotesStyle.emptyNotes.gradient.colors} style={NotesStyle.emptyNotes.gradient.wrapper}>
                     <Text style={NotesStyle.emptyNotes.buttonText}>Create new note!</Text>
                 </LinearGradient>
             </TouchableOpacity>

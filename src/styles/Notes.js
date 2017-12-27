@@ -62,7 +62,6 @@ export default {
             marginBottom: 10
         },
         wrapper: {
-            width: '100%',
             backgroundColor: '#A8DADC',
             borderRadius: 10,
             padding: 10
