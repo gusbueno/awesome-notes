@@ -23,6 +23,7 @@ class CreateNote extends Component {
         this._keyboardDidHide = this._keyboardDidHide.bind(this);
     }
 
+    /* istanbul ignore next */
     static navigationOptions = ({ navigation }) => {
         const { state } = navigation;
         const cancel = state.params && state.params.cancel ? state.params.cancel : null;
@@ -34,16 +35,19 @@ class CreateNote extends Component {
         }
     };
 
+    /* istanbul ignore next */
     componentWillMount() {
         this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
         this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
     }
 
+    /* istanbul ignore next */
     componentWillUnmount () {
         this.keyboardDidShowListener.remove();
         this.keyboardDidHideListener.remove();
     }
 
+    /* istanbul ignore next */
     componentDidMount() {
         this.props.navigation.setParams({
             cancel: this.props.cancel,
@@ -51,14 +55,17 @@ class CreateNote extends Component {
         });
     }
 
+    /* istanbul ignore next */
     _keyboardDidShow(e) {
         this.setState({ keyboardHeight: Platform.OS === 'ios' ? e.endCoordinates.height : 0 });
     }
 
+    /* istanbul ignore next */
     _keyboardDidHide() {
         this.setState({ keyboardHeight: 0 });
     }
 
+    /* istanbul ignore next */
     _saveNote() {
         if(this.state.text.trim() === '') {
             Alert.alert('Empty Text', 'Come on! write something cool... ;)');
@@ -88,6 +95,7 @@ class CreateNote extends Component {
     }
 }
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => {
     return ({
         cancel: () => {

@@ -19,29 +19,35 @@ class NoteItem extends Component {
         this._onSwipeClose = this._onSwipeClose.bind(this);
     }
 
+    /* istanbul ignore next */
     _runScaleAnimation(toValue) {
         Animated.timing(this.state.scaleAnim, { toValue }).start();
     }
 
+    /* istanbul ignore next */
     _runOpacityAnimation(toValue) {
         Animated.timing(this.state.opacityAnim, { toValue }).start();
     }
 
+    /* istanbul ignore next */
     _formatDate(date) {
         const [day, month, year] = ['' + date.getDate(), '' + (date.getMonth() + 1), date.getFullYear()];
         return [day, month, year].join('/');
     }
 
+    /* istanbul ignore next */
     _switchFavorite() {
         this.props.note.favourite = !this.props.note.favourite;
         this.props.updateNote(this.props.note);
     }
 
+    /* istanbul ignore next */
     _onSwipeOpen(sectionID, rowId, direction) {
         this._runScaleAnimation(0.60);
         direction == 'right' && this._runOpacityAnimation(0.5);
     }
 
+    /* istanbul ignore next */
     _onSwipeClose(sectionID, rowId, direction) {
         this._runScaleAnimation(1);
         direction === 'right' && this._runOpacityAnimation(1);
