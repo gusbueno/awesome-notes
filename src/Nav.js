@@ -15,8 +15,7 @@ export const Nav = StackNavigator(
             gesturesEnabled: false,
             headerTintColor: 'white',
             headerStyle: {
-                backgroundColor: '#E63946',
-                // paddingTop: 24
+                backgroundColor: '#E63946'
 
             },
             headerTitleStyle: {

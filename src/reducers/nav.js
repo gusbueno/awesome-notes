@@ -1,6 +1,3 @@
-import { NavigationActions } from 'react-navigation';
-
-import { NOTES, NEW_NOTE, BACK } from '../constants/ActionTypes';
 import { Nav } from '../Nav';
 
 const initialState = Nav.router.getStateForAction(Nav.router.getActionForPathAndParams('Notes'));
