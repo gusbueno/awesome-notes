@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, VirtualizedList } from 'react-native';
+import { View, VirtualizedList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { NotesStyle } from '../../styles';
