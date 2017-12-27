@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Animated, Dimensions } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import PropTypes from 'prop-types';
 import Swipeout from 'react-native-swipeout';
 
