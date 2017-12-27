@@ -1,8 +1,11 @@
 # Awesome Notes
 
 ## How to:
-1. Run `npm install`
-2. For ANDROID run `react-native run-android`. For IOS run `react-native run-ios`
+1. Run `npm install`.
+2. For ANDROID run `react-native run-android`. For IOS run `react-native run-ios`.
+
+## Tests:
+Run `npm test`.
 
 ## Improvements:
 1. Use [Styled-components](https://github.com/styled-components/styled-components)
