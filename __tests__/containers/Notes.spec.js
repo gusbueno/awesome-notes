@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import CreateNote from '../../src/containers/CreateNote';
+import Notes from '../../src/containers/Notes';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,32 +13,38 @@ const storeFake = {
     default: () => {},
     subscribe: () => {},
     dispatch: () => {},
-    getState: () => {}
+    getState: () => {
+        return {
+            notes: {
+                filterByFavourites: false
+            }
+        };
+    },
 };
 
 const mockNavigation = {
     setParams: () => {}
 };
 
-describe('<CreateNote /> container', () => {
+describe('<Notes /> container', () => {
 
-    it('CreateNote should match with the snapshot', () => {
+    it('Notes should match with the snapshot', () => {
         const tree = renderer.create(
             <Provider store={storeFake}>
-                <CreateNote navigation={mockNavigation} />
+                <Notes navigation={mockNavigation} />
             </Provider>
         );
         const json = tree.toJSON();
         expect(json).toMatchSnapshot();
     });
 
-    const createNoteShallow = shallow(
+    const notesShallow = shallow(
         <Provider store={storeFake}>
-            <CreateNote navigation={mockNavigation} />
+            <Notes navigation={mockNavigation} />
         </Provider>
     );
 
-    it('CreateNote should exists', () => {
-        expect(createNoteShallow.length).toEqual(1);
+    it('Notes should exists', () => {
+        expect(notesShallow.length).toEqual(1);
     });
 });
