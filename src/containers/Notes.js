@@ -13,6 +13,7 @@ import NotesList from '../components/Notes/NotesList';
 import NoFavouriteNotes from '../components/Notes/NoFavouriteNotes';
 
 class Notes extends Component {
+    /* istanbul ignore next */
     static navigationOptions = ({ navigation }) => {
         const { state } = navigation;
         const gotoCreateNote = state.params && state.params.gotoCreateNote ? state.params.gotoCreateNote : null;
@@ -25,6 +26,7 @@ class Notes extends Component {
         }
     };
 
+    /* istanbul ignore next */
     componentDidMount() {
         const favouriteIcon = this.props.isFilteredByFavourites ? 'favourite-selected' : 'favourite';
         this.props.navigation.setParams({
@@ -34,6 +36,7 @@ class Notes extends Component {
         });
     }
 
+    /* istanbul ignore next */
     componentWillReceiveProps(nextProps) {
         if(nextProps.isFilteredByFavourites !== this.props.isFilteredByFavourites) {
             const favouriteIcon = nextProps.isFilteredByFavourites ? 'favourite-selected' : 'favourite';
@@ -41,6 +44,7 @@ class Notes extends Component {
         }
     }
 
+    /* istanbul ignore next */
     _renderNotes() {
         // render no favourite notes Component
         if(this.props.isFilteredByFavourites && this.props.notes.length === 0) {
@@ -58,6 +62,7 @@ class Notes extends Component {
     }
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => {
     return ({
         notes: notes(state),
@@ -65,6 +70,7 @@ const mapStateToProps = (state) => {
     });
 };
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => {
     return ({
         gotoCreateNote: () => {

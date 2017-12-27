@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Notes /> container Notes should match with the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#1D3557",
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#457B9D",
+        "borderRadius": 5,
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "marginBottom": 10,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 50,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "marginBottom": 40,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#F1FAEE",
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 24,
+            "textAlign": "center",
+          }
+        }
+      >
+        You have no notes...yet...
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "marginBottom": 20,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#F1FAEE",
+            "fontFamily": "Roboto-Regular",
+            "fontSize": 18,
+            "textAlign": "center",
+          }
+        }
+      >
+        There are no notes saved. Create your first one by tapping on the following button!
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <BVLinearGradient
+        colors={
+          Array [
+            4293193705,
+            4287866319,
+          ]
+        }
+        endPoint={undefined}
+        locations={
+          Array [
+            0.1,
+            1,
+          ]
+        }
+        startPoint={undefined}
+        style={
+          Object {
+            "borderRadius": 5,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#1D3557",
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 18,
+              "textAlign": "center",
+            }
+          }
+        >
+          Create new note!
+        </Text>
+      </BVLinearGradient>
+    </View>
+  </View>
+</View>
+`;

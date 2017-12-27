@@ -7,7 +7,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "enzyme": "^3.2.0",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.4",
@@ -25,11 +24,31 @@
   "devDependencies": {
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "factory-girl": "^5.0.2",
     "jest": "21.2.1",
-    "react-test-renderer": "16.0.0"
+    "react-dom": "16.0.0",
+    "react-native-mock": "^0.3.1",
+    "react-test-renderer": "16.0.0",
+    "redux-mock-store": "^1.4.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ]
   },
   "rnpm": {
     "assets": [

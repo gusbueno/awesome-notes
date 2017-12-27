@@ -13,10 +13,12 @@ class NoFavouriteNotes extends PureComponent {
         }
     }
 
+    /* istanbul ignore next */
     componentDidMount() {
         this._runIconAnimation(0.5);
     }
 
+    /* istanbul ignore next */
     _runIconAnimation(toValue) {
         const newValue = toValue == 0.5 ? 1 : 0.5;
         Animated.timing(this.state.iconAnim, { toValue }).start(() => this._runIconAnimation(newValue));

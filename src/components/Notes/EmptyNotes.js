@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';

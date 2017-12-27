@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, VirtualizedList } from 'react-native';
+import { View, VirtualizedList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { NotesStyle } from '../../styles';
@@ -11,14 +11,17 @@ class NotesList extends PureComponent {
         this._renderItem = this._renderItem.bind(this);
     }
 
+    /* istanbul ignore next */
     _renderItem({ item }) {
         return <NoteItem note={item} updateNote={this.props.updateNote} deleteNote={this.props.deleteNote} />;
     }
 
+    /* istanbul ignore next */
     _getItem(data, index) {
         return data[index];
     }
 
+    /* istanbul ignore next */
     _shouldItemUpdate(prev, next) {
         return prev.item !== next.item;
     }
