@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 Enzyme.configure({ adapter: new Adapter() });
 
 import NoFavouriteNotes from '../../../src/components/Notes/NoFavouriteNotes';
-import { StackNavigator } from 'react-navigation';
 
 jest.useFakeTimers();
 
