@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateNote /> container CreateNote should match with the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoFocus={true}
+    multiline={true}
+    onChangeText={[Function]}
+    placeholder="How do you plan to dominate the world?"
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "padding": 10,
+          "textAlignVertical": "top",
+        },
+        Object {
+          "marginBottom": 0,
+        },
+      ]
+    }
+    value=""
+  />
+</View>
+`;
